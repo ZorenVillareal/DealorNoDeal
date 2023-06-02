@@ -25,13 +25,10 @@ console.log(prize.length)
 let cases = {}
 let letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 function fillInCase (prizes,cases,letters){
-
     for (let i = 0; i < prizes.length; i++){
         cases[letters[i]] = prizes[i]
     }
     console.log(cases)
     return cases
-
-
 }
 fillInCase(prize,cases,letters)
