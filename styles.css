@@ -1,0 +1,20 @@
+.aside1 {
+    float: left;
+    width: 25%;
+    margin: 0 1% 1% 0;
+    padding: 0 1% 1% 0;
+    border: 1px solid #ccc;
+    background: #d62c2c;
+    width: 25%;
+    height: 100%;
+}
+.aside2 {
+  float: right;
+  width: 25%;
+  margin: 0 1% 1% 0;
+  padding: 0 1% 1% 0;
+  border: 1px solid #ccc;
+  background: #d62c2c;
+  width: 25%;
+  height: 100%;
+}
