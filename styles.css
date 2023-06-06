@@ -3,12 +3,15 @@
     width: 25%;
     width: 25%;
     height: 100%;
+
 }
 aside .row{
     margin: 0 1% 1% 0;
     padding: 0 1% 1% 0;
     border: 1px solid #0b0a0a;
     background: #d62c2c;
+
+
 }
 .aside2 {
   float: right;
@@ -16,6 +19,6 @@ aside .row{
   width: 25%;
   height: 100%;
 }
-#case {
-  float: center
+body {
+  text-align: center;
 }
