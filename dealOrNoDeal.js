@@ -1,8 +1,6 @@
 let prizeCount = 0
 let casesCount = 26
 let numberOfRounds = 6
-// let cases =  {A:price , B: price, C: price, D: price, E: price, F: price, G: price, H: price, I: price, J: price, K: price, L: price, M: price, N: price, O: price, P: price, Q: price, R: price, S: price, T: price, U: price, V: price, W: price, X: price, Y: price, Z: price}
-// console.log(cases.length)
 
 // add all remaining unopened cases banker offer
 // loop over cases and open
@@ -21,11 +19,11 @@ let total = 0
 // round eight take 1 case off
 // round nine take 1 case off
 let smallPrizeList = document.querySelector('#smallPrizeList').children
-// console.log(smallPrizeList)
+ console.log(smallPrizeList)
 function fillInPrizesLeft (smallPrizeList,prizes){
     for (let i = 0; i < smallPrizeList.length; i++){
-            smallPrizeList[i].innerHTML = prizes[i]
-            total += smallPrizeList[i].outerText/1;
+            smallPrizeList[i].innerHTML = '$'+ prizes[i]
+            total += smallPrizeList[i].outerText.replace('$','')/1;
             //used division to convert strings to numbers
     }
 }
@@ -35,12 +33,12 @@ fillInPrizesLeft(smallPrizeList,prizes);
 let bigPrizeList = document.querySelector('#bigPrizeList').children
 function fillInPrizesRight(bigPrizeList,prizes){
     for (let i = 0; i < bigPrizeList.length; i++){
-        bigPrizeList[i].innerHTML = prizes[i+13]
-        total += bigPrizeList[i].outerText/1;
+        bigPrizeList[i].innerHTML ='$'+ prizes[i+13]
+        total += bigPrizeList[i].outerText.replace('$','')/1;
     }
 }
 fillInPrizesRight(bigPrizeList,prizes)
-console.log(total)
+console.log(Math.floor(total/26))
 let bool = false
 let cases = document.querySelector('#cases').children
 //let randomized =Math.random()
@@ -49,7 +47,7 @@ function fillInCases(cases,prizes) {
         cases[i].innerHTML = prizes[i]
     }
 }
-function shufflePrizes(prizes){
+function randomizedPrizes(prizes){
     for (var i = prizes.length - 1; i > 0; i--) {
         var randomized = Math.floor(Math.random() * (i + 1));
         var temp = prizes[i];
@@ -58,5 +56,11 @@ function shufflePrizes(prizes){
     }
     return prizes;
 }
-shufflePrizes(prizes)
+randomizedPrizes(prizes)
 fillInCases(cases,prizes)
+// var element = document.getElementById("#case")
+// function changeStyle(){
+// ;
+//     element.style.display = "none";
+// }
+// changeStyle(element)
