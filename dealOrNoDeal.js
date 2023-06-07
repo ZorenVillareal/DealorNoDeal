@@ -66,20 +66,20 @@
 // // changeStyle(element)
 
 
-let prizeCount = 0;
+let count = 0;
 let casesCount = 26;
 let numberOfRounds = 6;
 
-let prizes = [1,5,10,25,50,75,100,200,300,400,500,750,1000,5000,10000,25000,50000,75000,100000,200000,300000,400000,500000,750000,1000000,2000000];
-let total = 0;
+let prizes = [1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000, 2000000];
+let total = 0;//26
 
 let smallPrizeList = document.querySelector('#smallPrizeList').children;
 
 function fillInPrizesLeft(smallPrizeList, prizes) {
-  for (let i = 0; i < smallPrizeList.length; i++) {
-      total += Number(prizes[i]);
-    smallPrizeList[i].innerHTML = '$'+ prizes[i];
-  }
+    for (let i = 0; i < smallPrizeList.length; i++) {
+        total += Number(prizes[i]);
+        smallPrizeList[i].innerHTML = '$' + prizes[i];
+    }
 }
 fillInPrizesLeft(smallPrizeList, prizes);
 
@@ -88,52 +88,53 @@ let bigPrizeList = document.querySelector('#bigPrizeList').children;
 function fillInPrizesRight(bigPrizeList, prizes) {
     for (let i = 0; i < bigPrizeList.length; i++) {
         total += Number(prizes[i + 13]);
-        bigPrizeList[i].innerHTML = '$'+ prizes[i + 13];
+        bigPrizeList[i].innerHTML = '$' + prizes[i + 13];
     }
 }
 
 fillInPrizesRight(bigPrizeList, prizes);
 // console.log(total);
 
-let bool = false;
+// let bool = false;
 let cases = document.querySelector('#cases').children;
-console.log(cases.length);
+function randomizedPrizes(prizes) {
+    for (let i = prizes.length - 1; i > 0; i--) {
+        let randomized = Math.floor(Math.random() * (i + 1));
+        let temp = prizes[i];
+        prizes[i] = prizes[randomized];
+        prizes[randomized] = temp;
+    }
+    return prizes;
+}
 
-let newDiv = document.createElement('div');
+// let newDiv = document.createElement('div');
 
 function fillInCases(cases, prizes) {
     for (let i = 0; i < cases.length; i++) {
-        cases[i].innerHTML = prizes[i];
-        $(".col").append('<div>');
-    }
-}
+        let newDiv = document.createElement('div');
 
-function randomizedPrizes(prizes) {
-  for (let i = prizes.length - 1; i > 0; i--) {
-    let randomized = Math.floor(Math.random() * (i + 1));
-    let temp = prizes[i];
-    prizes[i] = prizes[randomized];
-    prizes[randomized] = temp;
-  }
-  return prizes;
+        newDiv.classList = 'back'
+        newDiv.style.display = 'none';
+        newDiv.innerHTML = '$' + prizes[i];
+        let bool = false;
+        cases[i].addEventListener('click', function (count) {
+            if (bool === false) {
+                newDiv.style.display = 'none';
+                bool = true;
+            } else {
+                newDiv.style.display = 'block';
+                bool = false;
+            }count++
+        })
+        // newDiv.style.display = 'block'
+        cases[i].append(newDiv);
+    }
 }
 
 randomizedPrizes(prizes);
 fillInCases(cases, prizes);
-console.log(cases)
-// function hidePrice(cases) {
-//   cases.classList.add('hidden');
-// }
-// hidePrice(cases);
-// const caseElements = document.querySelectorAll('#cases .col');
-// console.log(caseElements);
+console.log(count)
 
-// function hidePrice(caseElement) {
-//   caseElement.classList.add('hidden');
-// }
-
-// caseElements.forEach((caseElement) => {
-//     caseElement.addEventListener('click', () => {
-//         hidePrice(caseElement);
-//     });
-// });
+// first click is players case
+//round one start open 6 cases
+//banker offers
