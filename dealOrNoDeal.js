@@ -1,77 +1,9 @@
-// let prizeCount = 0
-// let casesCount = 26
-// let numberOfRounds = 6
-
-// // add all remaining unopened cases banker offer
-// // loop over cases and open
-// // if the price on board delete
-// let prizes = [1,5,10,25,50,75,100,200,300,400,500,750,1000,5000,10000,25000,50000,75000,100000,200000,300000,400000,500000,750000,1000000,2000000]
-// // console.log(prize.length)
-// let total = 0
-
-// // round one take 6 cases off
-// // round two take 5 cases off
-// // round three take 4 cases off
-// // round four take 3 cases off
-// // round five take 2 cases off
-// // round six take 1 case off
-// // round seven take 1 case off
-// // round eight take 1 case off
-// // round nine take 1 case off
-// let smallPrizeList = document.querySelector('#smallPrizeList').children
-//  console.log(smallPrizeList)
-// function fillInPrizesLeft (smallPrizeList,prizes){
-//     for (let i = 0; i < smallPrizeList.length; i++){
-//             smallPrizeList[i].innerHTML = '$'+ prizes[i]
-//             total += smallPrizeList[i].outerText.replace('$','')/1;
-//             //used division to convert strings to numbers
-//     }
-// }
-// //https://www.freecodecamp.org/news/how-to-convert-a-string-to-a-number-in-javascript/#:~:text=(quantity))%3B-,How%20to%20convert%20a%20string%20to%20a%20number%20in%20JavaScript,will%20go%20before%20the%20operand.&text=We%20can%20also%20use%20the,into%20a%20floating%20point%20number.
-// fillInPrizesLeft(smallPrizeList,prizes);
-
-// let bigPrizeList = document.querySelector('#bigPrizeList').children
-// function fillInPrizesRight(bigPrizeList,prizes){
-//     for (let i = 0; i < bigPrizeList.length; i++){
-//         bigPrizeList[i].innerHTML ='$'+ prizes[i+13]
-//         total += bigPrizeList[i].outerText.replace('$','')/1;
-//     }
-// }
-// fillInPrizesRight(bigPrizeList,prizes)
-// console.log(Math.floor(total/26))
-// let bool = false
-// let cases = document.querySelector('#cases').children
-// //let randomized =Math.random()
-// function fillInCases(cases,prizes) {
-//     for (let i = 0; i < cases.length; i++) {
-//         cases[i].innerHTML = prizes[i]
-//     }
-// }
-// function randomizedPrizes(prizes){
-//     for (var i = prizes.length - 1; i > 0; i--) {
-//         var randomized = Math.floor(Math.random() * (i + 1));
-//         var temp = prizes[i];
-//         prizes[i] = prizes[randomized];
-//         prizes[randomized] = temp;
-//     }
-//     return prizes;
-// }
-// randomizedPrizes(prizes)
-// fillInCases(cases,prizes)
-// // var element = document.getElementById("#case")
-// // function changeStyle(){
-// // ;
-// //     element.style.display = "none";
-// // }
-// // changeStyle(element)
-
-
 let count = 0;
+let total = 0;//26
 let casesCount = 26;
 let numberOfRounds = 6;
 
 let prizes = [1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000, 2000000];
-let total = 0;//26
 
 let smallPrizeList = document.querySelector('#smallPrizeList').children;
 
@@ -93,9 +25,7 @@ function fillInPrizesRight(bigPrizeList, prizes) {
 }
 
 fillInPrizesRight(bigPrizeList, prizes);
-// console.log(total);
 
-// let bool = false;
 let cases = document.querySelector('#cases').children;
 function randomizedPrizes(prizes) {
     for (let i = prizes.length - 1; i > 0; i--) {
@@ -107,33 +37,66 @@ function randomizedPrizes(prizes) {
     return prizes;
 }
 
-// let newDiv = document.createElement('div');
-
 function fillInCases(cases, prizes) {
     for (let i = 0; i < cases.length; i++) {
         let newDiv = document.createElement('div');
-
         newDiv.classList = 'back'
         newDiv.style.display = 'none';
         newDiv.innerHTML = '$' + prizes[i];
-        let bool = false;
-        cases[i].addEventListener('click', function (count) {
-            if (bool === false) {
-                newDiv.style.display = 'none';
-                bool = true;
-            } else {
-                newDiv.style.display = 'block';
-                bool = false;
-            }count++
-        })
-        // newDiv.style.display = 'block'
         cases[i].append(newDiv);
     }
 }
 
 randomizedPrizes(prizes);
 fillInCases(cases, prizes);
-console.log(count)
+
+
+function openCases(cases) {
+    for (let i = 0; i < cases.length; i++) {
+        cases[i].addEventListener('click', function () {
+            if (count === 0) {
+                cases[i].children[0].style.display = 'none';
+                document.getElementById('playerCase').appendChild(cases[i]);
+                count++
+            } else{
+                cases[i].children[0].style.display = 'block';
+                total -= cases[i].children[0].innerHTML.slice(1)/1;
+                casesCount--;
+                count++;
+                console.log(cases[i]);
+                removePrizeFromList(cases[i].children[0].innerHTML);
+                bankerOffer(total,casesCount);
+            }
+    })
+}
+}
+
+openCases(cases);
+
+removePrizeFromList = function (prize) {
+    for (let i = 0; i < smallPrizeList.length; i++) {
+        if (smallPrizeList[i].innerHTML === prize) {
+            smallPrizeList[i].innerHTML = '';
+        }
+    }
+    for (let i = 0; i < bigPrizeList.length; i++) {
+        if (bigPrizeList[i].innerHTML === prize) {
+            bigPrizeList[i].innerHTML = '';
+        }
+    }
+}
+function bankerOffer(total,casesCount) {
+    let offer = Math.floor(total / casesCount);
+    document.querySelector('.bankerOffer').innerHTML = '$' + offer;
+}
+
+// function show(div){
+// 	div.style.display = "block";
+// }
+
+// function hide(div){
+// 	div.style.display = "none"
+// }
 
 // first click is players case
 //round one start open 6 cases
