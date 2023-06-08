@@ -50,36 +50,78 @@ function fillInCases(cases, prizes) {
 
 randomizedPrizes(prizes);
 fillInCases(cases, prizes);
-// function roundCount(count,numberOfRounds) {
-//     if(count === 7 ){
 
-//     }
+let openedCases = document.querySelector('.openedCases');
+function openCaseValue(value,openCases) {
+    openCases.innerHTML = value;
+}
+// let
+// console.log(openedCases);
+let checker = true;
+let resultCount = 7;
+let newCount = 6
+function round(count,numberOfRounds){
+    if(count === resultCount){
+    checker = false;
+    resultCount += newCount;
+    newCount--;
+    console.log(newCount);
+    }
+}
+let noDeal = document.querySelector('#noDeal')
+noDeal.addEventListener('click',function(){
+    if(!checker){
+        alert('You have to open a case');
+        checker = true;
+}
+})
+let deal = document.querySelector('#deal')
+//{
+//let count = 0;
+// let total = 0;//26
+// let casesCount = 26;
+// let numberOfRounds = 6;
+// let playerCaseCount = 0;
+// round one open 6
+// round two open 5
+// round three open 4
+// round four open 3
+// round five open 2
+// round six open 1
+// round seven open 1
+// round eight open 1
+// round nine open 1/swap
 
-// }
-let openedCases = document.querySelector('.openedCases').innerHTML;
-console.log(openedCases);
+
 function openCases(cases) {
     for (let i = 0; i < cases.length; i++) {
         cases[i].addEventListener('click', function () {
-            if (count === playerCaseCount) {
-                cases[i].children[0].style.display = 'none';
-                document.getElementById('playerCase').appendChild(cases[i]);
-                count++
-            } else {
-                cases[i].children[0].style.display = 'block';
-                total -= cases[i].children[0].innerHTML.slice(1) / 1;
-                casesCount--;
-                count++;
-                openedCases = ''+ cases[i].children[0].innerHTML
-                console.log(cases[i].children[0].innerHTML);
-                removePrizeFromList(cases[i].children[0].innerHTML);
-                bankerOffer(total, casesCount);
-                // cases[i].style.opacity = "0";
-                // cases[i].removeEventListener("onClick",() =>{console.log("hello")})
+            round(count,numberOfRounds);
+            if(checker){
+                if (count === playerCaseCount) {
+                    cases[i].children[0].style.display = 'none';
+                    $(cases[i]).clone().appendTo(document.getElementById('playerCase'));
+                    cases[i].style.opacity = "0";
+                    count++
+                    console.log(count)
+                } else {
+                    cases[i].children[0].style.display = 'block';
+                    total -= cases[i].children[0].innerHTML.slice(1) / 1;
+                    casesCount--;
+                    openCaseValue(cases[i].children[0].innerHTML,openedCases)
+                    console.log(cases[i].children[0].innerHTML);
+                    removePrizeFromList(cases[i].children[0].innerHTML);
+                    bankerOffer(total, casesCount);
+                    count++;
+                    console.log(count)
+
+                    cases[i].style.opacity = "0";
+                }
             }
-        })
+        }, {once: true})
+        }
     }
-}
+
 
 openCases(cases);
 
