@@ -147,6 +147,10 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.45);
   display: fill;
   background-image: "assets";
 }
+#openedCases {
+  display: block;
+  float: center;
+}
 /* .back{
 display :none;
   /* height: 28rem; */

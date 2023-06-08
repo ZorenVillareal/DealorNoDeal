@@ -2,6 +2,7 @@ let count = 0;
 let total = 0;//26
 let casesCount = 26;
 let numberOfRounds = 6;
+let playerCaseCount = 0;
 
 let prizes = [1, 5, 10, 25, 50, 75, 100, 200, 300, 400, 500, 750, 1000, 5000, 10000, 25000, 50000, 75000, 100000, 200000, 300000, 400000, 500000, 750000, 1000000, 2000000];
 
@@ -49,26 +50,35 @@ function fillInCases(cases, prizes) {
 
 randomizedPrizes(prizes);
 fillInCases(cases, prizes);
+// function roundCount(count,numberOfRounds) {
+//     if(count === 7 ){
 
+//     }
 
+// }
+let openedCases = document.querySelector('.openedCases').innerHTML;
+console.log(openedCases);
 function openCases(cases) {
     for (let i = 0; i < cases.length; i++) {
         cases[i].addEventListener('click', function () {
-            if (count === 0) {
+            if (count === playerCaseCount) {
                 cases[i].children[0].style.display = 'none';
                 document.getElementById('playerCase').appendChild(cases[i]);
                 count++
-            } else{
+            } else {
                 cases[i].children[0].style.display = 'block';
-                total -= cases[i].children[0].innerHTML.slice(1)/1;
+                total -= cases[i].children[0].innerHTML.slice(1) / 1;
                 casesCount--;
                 count++;
-                console.log(cases[i]);
+                openedCases = ''+ cases[i].children[0].innerHTML
+                console.log(cases[i].children[0].innerHTML);
                 removePrizeFromList(cases[i].children[0].innerHTML);
-                bankerOffer(total,casesCount);
+                bankerOffer(total, casesCount);
+                // cases[i].style.opacity = "0";
+                // cases[i].removeEventListener("onClick",() =>{console.log("hello")})
             }
-    })
-}
+        })
+    }
 }
 
 openCases(cases);
@@ -76,7 +86,7 @@ openCases(cases);
 removePrizeFromList = function (prize) {
     for (let i = 0; i < smallPrizeList.length; i++) {
         if (smallPrizeList[i].innerHTML === prize) {
-            smallPrizeList[i].innerHTML = '';
+            smallPrizeList[i].style.display = 'none';
         }
     }
     for (let i = 0; i < bigPrizeList.length; i++) {
@@ -85,7 +95,7 @@ removePrizeFromList = function (prize) {
         }
     }
 }
-function bankerOffer(total,casesCount) {
+function bankerOffer(total, casesCount) {
     let offer = Math.floor(total / casesCount);
     document.querySelector('.bankerOffer').innerHTML = '$' + offer;
 }
