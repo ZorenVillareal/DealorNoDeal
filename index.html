@@ -1,114 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <title>Deal or No Deal</title>
-</head>
-<body>
-<!-- navbar -->
-<nav class="navbar navbar-expand-xl navbar-light" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">DealorNoDeal</a>
-    <div class="collapse navbar-collapse show" id="navbarLight">
-      <ul class="navbar-nav me-auto mb-2 mb-xl-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="instruction.html">instruction</a>
-        </li>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Deal or No Deal</title>
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-xl navbar-light" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">DealorNoDeal</a>
+        <div class="collapse navbar-collapse show" id="navbarLight">
+          <ul class="navbar-nav me-auto mb-2 mb-xl-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="instruction.html">instruction</a>
+            </li>
+        </div>
+      </div>
+    </nav>
+    <div class="wrap">
+
+      <aside class="aside1">
+        <div id='smallPrizeList' class="container">
+          <div class="row">$1</div>
+          <div class="row">2</div>
+          <div class="row">3</div>
+          <div class="row">4</div>
+          <div class="row">5</div>
+          <div class="row">6</div>
+          <div class="row">7</div>
+          <div class="row">8</div>
+          <div class="row">9</div>
+          <div class="row">10</div>
+          <div class="row">11</div>
+          <div class="row">12</div>
+          <div class="row">13</div>
+        </div>
+      </aside>
+
+      <aside class="aside2">
+        <div id='bigPrizeList' class="container">
+          <div class="row">1</div>
+          <div class="row">2</div>
+          <div class="row">3</div>
+          <div class="row">4</div>
+          <div class="row">5</div>
+          <div class="row">6</div>
+          <div class="row">7</div>
+          <div class="row">8</div>
+          <div class="row">9</div>
+          <div class="row">10</div>
+          <div class="row">11</div>
+          <div class="row">12</div>
+          <div class="row">13</div>
+        </div>
+      </aside>
+      <!-- create two aside -->
+      <!-- mid div for the 27 cases -->
+      <!-- bottom div to be player case holder -->
+
+
+      <div class="container-fluid">
+        <div id='cases' class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6">
+          <div class="front col">1</div>
+          <div class="front col">2</div>
+          <div class="front col">3</div>
+          <div class="front col">4</div>
+          <div class="front col">5</div>
+          <div class="front col">6</div>
+          <div class="front col">7</div>
+          <div class="front col">8</div>
+          <div class="front col">9</div>
+          <div class="front col">10</div>
+          <div class="front col">11</div>
+          <div class="front col">12</div>
+          <div class="front col">13</div>
+          <div class="front col">14</div>
+          <div class="front col">15</div>
+          <div class="front col">16</div>
+          <div class="front col">17</div>
+          <div class="front col">18</div>
+          <div class="front col">19</div>
+          <div class="front col">20</div>
+          <div class="front col">21</div>
+          <div class="front col">22</div>
+          <div class="front col">23</div>
+          <div class="front col">24</div>
+          <div class="front col">25</div>
+          <div class="front col">26</div>
+        </div>
+      </div>
+      <div id="player" class="container">
+        <button id='yesDeal' type="button">DEAL</button>
+        <button id='noDeal' type="button">No DEAL</button>
+        <div id="playerCase" class="col">player case</div>
+        BankerOffering
+        <div class="bankerOffer" label='BankerOffer'>BankerOffer</div>
+      </div>openedCases Value
+      <div class="container openedCases">
+      </div>
     </div>
-  </div>
-</nav>
-<aside class="aside1">
-  <div id ='smallPrizeList'class="container" >
-    <div class="row">$1</div>
-    <div class="row">2</div>
-    <div class="row">3</div>
-    <div class="row">4</div>
-    <div class="row">5</div>
-    <div class="row">6</div>
-    <div class="row">7</div>
-    <div class="row">8</div>
-    <div class="row">9</div>
-    <div class="row">10</div>
-    <div class="row">11</div>
-    <div class="row">12</div>
-    <div class="row">13</div>
-  </div>
-</aside>
-<aside class="aside2">
-  <div id ='bigPrizeList'class="container" >
-    <div class="row">1</div>
-    <div class="row">2</div>
-    <div class="row">3</div>
-    <div class="row">4</div>
-    <div class="row">5</div>
-    <div class="row">6</div>
-    <div class="row">7</div>
-    <div class="row">8</div>
-    <div class="row">9</div>
-    <div class="row">10</div>
-    <div class="row">11</div>
-    <div class="row">12</div>
-    <div class="row">13</div>
-  </div>
-</aside>
-<!-- create two aside -->
-<!-- mid div for the 27 cases -->
-<!-- bottom div to be player case holder -->
 
 
-<div class="container-fluid">
-  <div id='cases' class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-6">
-    <div class="front col">1</div>
-    <div class="front col">2</div>
-    <div class="front col">3</div>
-    <div class="front col">4</div>
-    <div class="front col">5</div>
-    <div class="front col">6</div>
-    <div class="front col">7</div>
-    <div class="front col">8</div>
-    <div class="front col">9</div>
-    <div class="front col">10</div>
-    <div class="front col">11</div>
-    <div class="front col">12</div>
-    <div class="front col">13</div>
-    <div class="front col">14</div>
-    <div class="front col">15</div>
-    <div class="front col">16</div>
-    <div class="front col">17</div>
-    <div class="front col">18</div>
-    <div class="front col">19</div>
-    <div class="front col">20</div>
-    <div class="front col">21</div>
-    <div class="front col">22</div>
-    <div class="front col">23</div>
-    <div class="front col">24</div>
-    <div class="front col">25</div>
-    <div class="front col">26</div>
-  </div>
-</div>
-<div id="player" class="container">
-  <button id='yesDeal' type="button">DEAL</button>
-  <button id='noDeal' type="button">No DEAL</button>
-  <div id="playerCase" class= "col">player case</div>
-  BankerOffering
-  <div class = "bankerOffer" label = 'BankerOffer'>BankerOffer</div>
-</div>
-<div  class="container openedCases">
-</div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
 
-  <script src ="dealOrNoDeal.js"></script>
-  <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="dealOrNoDeal.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 
 
-</body>
+  </body>
+
 </html>

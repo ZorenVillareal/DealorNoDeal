@@ -1,4 +1,4 @@
-.aside1 {
+/* .aside1 {
     float: left;
     width: 25%;
     width: 25%;
@@ -37,8 +37,12 @@ width: 100%;
 button {
 font-family: 'Michroma', sans-serif;
 }
+.wrap {
+  width: 100%;
+  height: 100%;
+  margin-top: 70px;
 
-
+}
 .col:hover {
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6), 0 6px 20px 0 rgba(0,0,0,0.6);
 border: 3px solid #c8a913;
@@ -60,7 +64,6 @@ button:hover {
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.45);
 }
 
-
 .buttons {
   height: 100px;
   width: 200px;
@@ -68,7 +71,8 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.45);
 }
 #cases {
   display: fill;
-  height: 100px;
+  height:
+
 }
 #openedCases {
   display: block;
@@ -77,4 +81,98 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.45);
 #player {
   padding: 10px;
 
+} */
+.aside1 {
+  float: left;
+  width: 25%;
+  height: 100%;
+}
+
+aside .row {
+  margin: 0 1% 1% 0;
+  padding: 0 1% 1% 0;
+  border: 1px solid #0b0a0a;
+  background: #d62c2c;
+}
+
+.aside2 {
+  float: right;
+  width: 25%;
+  height: 100%;
+}
+
+body {
+  text-align: center;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0 auto;
+  background-color: #abbc81;
+  background-size: 100% 120%;
+  font-family: 'Michroma', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  font-family: 'Michroma', sans-serif;
+}
+
+.col:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6), 0 6px 20px 0 rgba(0,0,0,0.6);
+  border: 3px solid #c8a913;
+  cursor: pointer;
+}
+
+button {
+  height: 60px;
+  line-height: 20px;
+  font-size: 20px;
+  color: #FFF;
+  width: 200px;
+  text-transform: uppercase;
+  font-weight: 900;
+  margin: 10px;
+  transition: all 0.5s;
+}
+
+button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.45);
+}
+
+.buttons {
+  height: 100px;
+  width: 200px;
+  font-size: 20px;
+}
+
+#cases {
+  display: fill;
+  height: 100px;
+}
+
+#openedCases {
+  display: block;
+  float: center;
+}
+
+#player {
+  padding: 10px;
+}
+#counterButton {
+  background-color: #d62c2c;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#counterButton:hover {
+  background-color: #c21f1f;
 }
