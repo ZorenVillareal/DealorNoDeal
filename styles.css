@@ -1,4 +1,4 @@
-/* .aside1 {
+.aside1 {
     float: left;
     width: 25%;
     width: 25%;
@@ -81,8 +81,8 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5), 0 6px 20px 0 rgba(0,0,0,0.45);
 #player {
   padding: 10px;
 
-} */
-.aside1 {
+}
+/* .aside1 {
   float: left;
   width: 25%;
   height: 100%;
@@ -160,19 +160,7 @@ button:hover {
   float: center;
 }
 
-#player {
+#player .container {
   padding: 10px;
-}
-#counterButton {
-  background-color: #d62c2c;
-  color: #ffffff;
-  font-size: 18px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#counterButton:hover {
-  background-color: #c21f1f;
-}
+  background-color: ;
+} */
